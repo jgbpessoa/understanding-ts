@@ -68,3 +68,42 @@ const person = {
 
 // With the spread operator we can actually create a new object in memory
 const copiedPerson = { ...person };
+
+// Rest parameter
+
+const addRestParameter = (...numbers: number[]) => {
+  return numbers.reduce((acc, cur) => {
+    return acc + cur;
+  }, 0);
+};
+
+printOutput(addRestParameter(1, 2, 3, 4, 5, 6, 7, 8, 9));
+
+// We can also set a defined amount of parameters using rest
+// Here we only allow three numbers
+const addRestParameterDefined = (...numbers: [number, number, number]) => {
+  return numbers.reduce((acc, cur) => {
+    return acc + cur;
+  }, 0);
+};
+
+printOutput(addRestParameterDefined(1, 2, 3));
+
+// Array and Object Destructuring
+
+// const hobby1 = hobbies[0];
+// const hobby2 = hobbies[1];
+
+// With array destructuring
+const [hobby1, hobby2, ...remainingHobbies] = activeHobbies;
+console.log(hobby1, hobby2, remainingHobbies);
+
+// In array destructuring elements are pulled out in order because an array is an ordered list
+
+// Object destructuring
+// const {name, age} = person; syntax to create variables with same name as property
+
+// Syntax to create variables with different names
+const { name: personName, age: personAge } = person;
+
+// In objects, we take elements by key names
